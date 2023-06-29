@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rodney.Codes</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    
+    .profilepic {
+      width: 220px;
+      border-radius: 80%;
+      border: 3px solid #FFFFFF;
+      margin-bottom: 2rem;
+    }
+    
+    .button {
+      background-color: transparent;
+      color: white;
+      padding: 1rem 2rem;
+      border: 1px solid #fff;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      height: 20px;
+      width: 260px;
+    }
+    
+    .button-left-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 6%;
+      background-color: #fff;
+    }
+
+    .button-text {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .button-link {
+      width: 100%;
+    }
+
+    .barcodes-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .barcodes-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .barcode {
+      width: 4px;
+      background-image: linear-gradient(to right, #fff, transparent);
+      background-size: 100% 20px;
+      background-repeat: repeat-y;
+      animation: barcode-grow 2s forwards;
+    }
+    
+    @keyframes barcode-grow {
+      0% {
+        height: 0;
+      }
+      100% {
+        height: 15vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="rodney_colorful.png" alt="profile picture" class="profilepic" />
+    <a href="https://github.com/rodneygauna/OpenConsult" class="button-link">
+      <button class="button">
+        <span class="button-left-section"></span>
+        <span class="button-text">PROJECT: OpenConsult</span>
+      </button>
+    </a>
+    <a href="https://github.com/rodneygauna" class="button-link">
+      <button class="button">
+        <span class="button-left-section"></span>
+        <span class="button-text">GitHub</span>
+      </button>
+    </a>
+    <a href="https://linkedin.com/in/rodneygauna" class="button-link">
+      <button class="button">
+        <span class="button-left-section"></span>
+        <span class="button-text">LinkedIn</span>
+      </button>
+    </a>
+  </div>
+  <div class="barcodes-top"></div>
+  <div class="barcodes-bottom"></div>
+
+  <script>
+    // Get the width of the window
+    const windowWidth = window.innerWidth;
+
+    // Calculate the number of barcode elements needed to fill the width
+    const barcodeCount = Math.floor(windowWidth / 4); // Adjust the division factor as needed
+
+    // Generate the barcode elements
+    function generateBarcodes() {
+      const barcodesTop = document.querySelector('.barcodes-top');
+      const barcodesBottom = document.querySelector('.barcodes-bottom');
+
+      // Clear existing barcodes
+      barcodesTop.innerHTML = '';
+      barcodesBottom.innerHTML = '';
+
+      for (let i = 0; i < barcodeCount; i++) {
+        const barcode = document.createElement('div');
+        barcode.classList.add('barcode');
+
+        // Assign a random animation delay between 0s and 4s
+        const randomDelay = (Math.random() * 4).toFixed(1);
+        barcode.style.animationDelay = `${randomDelay}s`;
+
+        // Assign a random width to the bar between 1px and 20px
+        const randomWidth = (Math.random() * 20).toFixed(1);
+        barcode.style.width = `${randomWidth}px`;
+
+        barcodesTop.appendChild(barcode.cloneNode(true));
+        barcodesBottom.appendChild(barcode.cloneNode(true));
+      }
+    }
+
+    generateBarcodes(); // Generate initial barcodes
+
+    // Remove and generate barcodes after 8 seconds
+    setInterval(generateBarcodes, 8000);
+  </script>
+</body>
+</html>
