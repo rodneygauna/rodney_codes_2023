@@ -47,3 +47,4 @@ generateBarcodes();
 
 // Remove and generate barcodes after 8 seconds
 setInterval(generateBarcodes, 8000);
+
