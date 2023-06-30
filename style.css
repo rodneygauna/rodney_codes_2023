@@ -1,0 +1,111 @@
+body {
+    background-color: #000;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    font-family: "Courier New", monospace;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.profilepic {
+    width: 220px;
+    border-radius: 80%;
+    border: 3px solid #fff;
+    margin-bottom: 2rem;
+}
+
+.button {
+    background-color: transparent;
+    color: white;
+    padding: 1rem 2rem;
+    border: 1px solid #fff;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    height: 20px;
+    width: 260px;
+}
+
+.button-left-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 6%;
+    background-color: #fff;
+}
+
+.button-text {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.button-link {
+    width: 100%;
+}
+
+.barcodes-top {
+    align-items: flex-start;
+}
+
+.barcodes-bottom {
+    align-items: flex-end;
+}
+
+.barcodes-top,
+.barcodes-bottom {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.barcodes-top.fade-out,
+.barcodes-bottom.fade-out {
+    opacity: 0;
+}
+
+.barcode {
+    width: 20px;
+    margin-right: 4px;
+    background-color: #fff;
+    background-size: 100% 20px;
+    background-repeat: repeat-y;
+    animation: barcode-grow 2s forwards;
+}
+
+@keyframes barcode-grow {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 15vh;
+    }
+}
